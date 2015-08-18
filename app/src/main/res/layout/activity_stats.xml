@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="be.thomasave.mastermind.app.about">
+
+    <fragment android:name="thomasave.mastermind.AdFragment"
+        android:id="@+id/ad_fragment"
+        android:layout_weight="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content"
+        android:text="Total amount of games"
+        android:id="@+id/totalgames"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+ />
+
+    <TextView
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="0"
+        android:id="@+id/totalgamescount"
+        android:layout_alignTop="@+id/totalgames"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount of games won"
+        android:id="@+id/gameswon"
+        android:textSize="20sp"
+        android:layout_below="@+id/totalgames"
+        android:layout_alignRight="@+id/totalgames"
+        android:layout_alignEnd="@+id/totalgames"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="0"
+        android:id="@+id/gameswoncount"
+        android:layout_alignTop="@+id/gameswon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount of games lost"
+        android:id="@+id/gameslost"
+        android:textSize="20sp"
+        android:layout_below="@+id/gameswon"
+        android:layout_alignRight="@+id/gameswon"
+        android:layout_alignEnd="@+id/gameswon"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="0"
+        android:id="@+id/gameslostcount"
+        android:layout_alignTop="@+id/gameslost"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Win-ratio"
+        android:id="@+id/winratio"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/gameslost"
+        android:layout_alignLeft="@+id/gameslost"
+        android:layout_alignStart="@+id/gameslost" />
+
+    <TextView
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="100%"
+        android:id="@+id/winratiocount"
+        android:layout_alignTop="@+id/winratio"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset statistics"
+        android:id="@+id/reset"
+        android:layout_marginTop="220dp"
+        android:layout_toLeftOf="@+id/gameslostcount"
+        android:layout_alignLeft="@+id/winratio"
+        android:layout_alignStart="@+id/winratio" />
+</RelativeLayout>

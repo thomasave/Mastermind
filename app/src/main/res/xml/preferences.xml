@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:key="preferencescreen">
+    <EditTextPreference
+        android:key="rows"
+        android:inputType="number"
+        android:showDefault="true"
+        android:defaultValue="7"
+        android:summary="Select the desired number of rows"
+        android:title="Number of rows"
+        />
+
+    <ListPreference
+        android:key="adpreference"
+        android:title="Advertisements"
+        android:summary="Change advertisement behaviour"
+        android:entries="@array/ads"
+        android:entryValues="@array/adsvalue"
+        android:defaultValue="Full"
+        />
+</PreferenceScreen>
