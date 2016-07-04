@@ -37,7 +37,7 @@ public class Stats extends Activity {
         final TextView totalcount = (TextView) findViewById(R.id.totalgamescount);
 
         Button reset = (Button) findViewById(R.id.reset);
-        final double wins = (double) sharedpreferences.getInt("woncount", 0);
+        final double wins = (double) sharedpreferences.getInt("wincount", 0);
         final double losses = (double) sharedpreferences.getInt("lostcount",0);
         totalcount.setText((int) wins + (int) losses + "");
         woncount.setText((int) wins+"");

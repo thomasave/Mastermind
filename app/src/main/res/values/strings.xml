@@ -14,11 +14,17 @@
         <item>Less</item>
         <item>None</item>
     </string-array>
-    <string-array name="adsvalue">
-        <item>Full</item>
-        <item>Less</item>
+
+    <string-array name="columns">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="background">
+        <item>Wood</item>
         <item>None</item>
     </string-array>
-
 
 </resources>

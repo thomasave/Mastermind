@@ -9,13 +9,26 @@
         android:summary="Select the desired number of rows"
         android:title="Number of rows"
         />
-
+    <ListPreference
+        android:key="columns"
+        android:title="Number of columns"
+        android:summary="Select the desired number of columns"
+        />
+    <ListPreference
+        android:key="backgroundpreference"
+        android:title="Background"
+        android:summary="Choose the type of background"
+        android:entries="@array/background"
+        android:entryValues="@array/background"
+        android:defaultValue="None"
+        />
     <ListPreference
         android:key="adpreference"
         android:title="Advertisements"
         android:summary="Change advertisement behaviour"
         android:entries="@array/ads"
-        android:entryValues="@array/adsvalue"
+        android:entryValues="@array/ads"
         android:defaultValue="Full"
         />
+
 </PreferenceScreen>
