@@ -12,7 +12,6 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.widget.RelativeLayout;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;

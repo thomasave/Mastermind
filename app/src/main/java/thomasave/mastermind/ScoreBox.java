@@ -27,7 +27,7 @@ public class ScoreBox extends TextView {
         setVisibility(INVISIBLE);
         GridView.LayoutParams layoutParams = new GridView.LayoutParams((int) (size * 0.9), size);
         setLayoutParams(layoutParams);
-        setPadding(padding, padding - 20, padding, padding - 20);
+        setPadding(padding-20, padding - 20, padding-20, padding - 20);
         setTextSize((int) (0.178571429 * size));
         setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
     }

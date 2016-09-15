@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,13 +38,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         int rows = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("rows", "7"));
         int columns = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("columns", "4"));
+        Log.i("starting Game","starting Game");
         m_game = new Game(this, rows, columns);
+        Log.i("Loading Game finished","Loading Game finished");
 
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         Tracker tracker = application.getDefaultTracker();
         tracker.setScreenName("Mainactivity");
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
-
         final AdView mAdView = (AdView) this.findViewById(R.id.adView);
         mAdView.setVisibility(View.INVISIBLE);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -108,9 +110,10 @@ public class MainActivity extends Activity {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativelayout);
 
         RelativeLayout relativeparent = (RelativeLayout) findViewById(R.id.parent);
-        Resources res = getResources();
-        Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.background_image);
+
         if(PreferenceManager.getDefaultSharedPreferences(this).getString("backgroundpreference", "None").equals("Wood")) {
+            Resources res = getResources();
+            Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.background_image);
             Rect rect = new Rect();
             Window win = this.getWindow();
             win.getDecorView().getWindowVisibleDisplayFrame(rect);
