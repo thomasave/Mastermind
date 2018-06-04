@@ -6,7 +6,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.widget.Button;
 import android.widget.GridView;
 
-public class RoundButton extends Button {
+public class RoundButton extends android.support.v7.widget.AppCompatButton {
     public static int size=0;
     public static int padding=0;
 

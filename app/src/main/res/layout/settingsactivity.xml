@@ -10,11 +10,4 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:id="@android:id/list"
         android:layout_gravity="center_horizontal" />
-    <fragment android:name="thomasave.mastermind.AdFragment"
-        android:id="@+id/ad_fragmentsettings"
-        android:layout_weight="0"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

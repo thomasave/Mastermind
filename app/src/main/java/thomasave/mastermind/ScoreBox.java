@@ -8,7 +8,7 @@ import android.view.Gravity;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class ScoreBox extends TextView {
+public class ScoreBox extends android.support.v7.widget.AppCompatTextView {
     public static int size=0;
     public static int padding=0;
     public enum Type {BLACK, WHITE}

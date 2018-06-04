@@ -10,9 +10,6 @@ import android.view.Display;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -122,13 +119,6 @@ public class Game {
         mEdit1.putInt("wincount", sharedPreferences.getInt("wincount",0) + 1);
         mEdit1.apply();
 
-        AnalyticsApplication application = (AnalyticsApplication) m_activity.getApplication();
-        Tracker tracker = application.getDefaultTracker();
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory("Result")
-                .setAction("Win")
-                .build());
-
         AlertDialog.Builder builder = new AlertDialog.Builder(m_activity);
         builder.setTitle("We have a winner")
                 .setMessage("Congratulations, you won!")
@@ -188,13 +178,6 @@ public class Game {
         SharedPreferences.Editor mEdit1 = sharedPreferences.edit();
         mEdit1.putInt("lostcount", sharedPreferences.getInt("lostcount",0) + 1);
         mEdit1.apply();
-
-        AnalyticsApplication application = (AnalyticsApplication) m_activity.getApplication();
-        Tracker tracker = application.getDefaultTracker();
-        tracker.send(new HitBuilders.EventBuilder()
-                .setCategory("Result")
-                .setAction("Lost")
-                .build());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(m_activity);
         builder.setTitle("Oops")

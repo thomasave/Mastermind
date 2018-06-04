@@ -11,19 +11,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 public class MainActivity extends Activity {
 
@@ -38,28 +29,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         int rows = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("rows", "7"));
         int columns = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("columns", "4"));
-        Log.i("starting Game","starting Game");
         m_game = new Game(this, rows, columns);
-        Log.i("Loading Game finished","Loading Game finished");
 
-        AnalyticsApplication application = (AnalyticsApplication) getApplication();
-        Tracker tracker = application.getDefaultTracker();
-        tracker.setScreenName("Mainactivity");
-        tracker.send(new HitBuilders.ScreenViewBuilder().build());
-        final AdView mAdView = (AdView) this.findViewById(R.id.adView);
-        mAdView.setVisibility(View.INVISIBLE);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-        mAdView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if (PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getString("adpreference", "Full").equals("Full")) {
-                    ScrollView scrollview = (ScrollView) findViewById(R.id.scrollView);
-                    scrollview.setPadding(0, 0, 0, mAdView.getHeight());
-                    mAdView.setVisibility(View.VISIBLE);
-                }
-            }
-        });
     }
 
     @Override
@@ -98,12 +69,6 @@ public class MainActivity extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         m_game.onScreenRotate();
-        if (PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getString("adpreference", "Full").equals("Full")) {
-            final AdView mAdView = (AdView) this.findViewById(R.id.adView);
-            mAdView.setVisibility(View.VISIBLE);
-            ScrollView scrollview = (ScrollView) findViewById(R.id.scrollView);
-            scrollview.setPadding(0, 0, 0, mAdView.getHeight());
-        }
     }
 
     public void changeBackground(int m_rows) {
@@ -126,7 +91,7 @@ public class MainActivity extends Activity {
             int screenWidth = metrics.widthPixels;
             int layoutHeight = Math.max(screenHeight,screenWidth) - (titleBarHeight + statusBarHeight);
 
-            if(layoutHeight <  m_rows * (RoundButton.size + RoundButton.padding) + findViewById(R.id.adView).getHeight()) {
+            if(layoutHeight <  m_rows * (RoundButton.size + RoundButton.padding)) {
                 relativeparent.setBackgroundResource(0);
                 BitmapDrawable ob = new BitmapDrawable(getResources(), Bitmap.createBitmap(bitmap, 0,0, Math.min(screenWidth,bitmap.getWidth()), Math.min(m_rows * (RoundButton.size + RoundButton.padding),bitmap.getHeight())));
                 relativeLayout.setBackgroundDrawable(ob);
@@ -151,18 +116,6 @@ public class MainActivity extends Activity {
             int rows = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("rows", "7"));
             int columns = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("columns", "4"));
             m_game = new Game(this,rows,columns);
-        } else if(m_ads_changed) {
-            m_ads_changed = false;
-            final AdView mAdView = (AdView) this.findViewById(R.id.adView);
-            if (PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getString("adpreference", "Full").equals("Full")) {
-                mAdView.setVisibility(View.VISIBLE);
-                ScrollView scrollview = (ScrollView) findViewById(R.id.scrollView);
-                scrollview.setPadding(0, 0, 0, mAdView.getHeight());
-            } else {
-                mAdView.setVisibility(View.INVISIBLE);
-                ScrollView scrollview = (ScrollView) findViewById(R.id.scrollView);
-                scrollview.setPadding(0, 0, 0, 0);
-            }
         } else if(m_background_changed) {
             m_background_changed = false;
             changeBackground(Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("rows", "7")));

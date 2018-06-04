@@ -9,11 +9,6 @@
     <string name="restart">Restart Game</string>
     <string name="action_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-4176131381036731/3746112408</string>
-    <string-array name="ads">
-        <item>Full</item>
-        <item>Less</item>
-        <item>None</item>
-    </string-array>
 
     <string-array name="columns">
         <item>3</item>

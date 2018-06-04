@@ -5,10 +5,9 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.Gravity;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
-public class GoButton extends Button {
+public class GoButton extends android.support.v7.widget.AppCompatButton {
 
     private float m_padding;
     private int current_round = 0;
