@@ -3,11 +3,11 @@ package thomasave.mastermind;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
 
-public class GoButton extends android.support.v7.widget.AppCompatButton {
+public class GoButton extends androidx.appcompat.widget.AppCompatButton {
 
     private float m_padding;
     private int current_round = 0;
